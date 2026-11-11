@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 YEONJOO KIM PORTFOLIO</title>
+
+<!-- ===== 검색엔진·AI 크롤러 차단 ===== -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noai, noimageai">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="naverbot" content="noindex, nofollow">
+<meta name="Yeti" content="noindex, nofollow">
+<meta name="slurp" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- ================================== -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#fff;--fg:#111;--mut:#8a8a8a;--line:#e8e8e8;--soft:#f3f3f1;--bar:56px;--gut:clamp(12px,2vw,28px)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--fg);line-height:1.65;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;padding-top:var(--bar);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+[id]{scroll-margin-top:var(--bar)}
+
+/* ---------- 상단 바 (항상 보임) ---------- */
+.top{position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:40;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:0 clamp(14px,3vw,40px);padding-top:env(safe-area-inset-top);background:rgba(255,255,255,.88);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.now{font-size:13px;color:#555;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw;min-height:1em}
+.top-star{position:absolute;left:50%;top:calc(50% + env(safe-area-inset-top)/2);transform:translate(-50%,-50%);width:36px;height:36px;display:grid;place-items:center;cursor:pointer;border-radius:50%;-webkit-tap-highlight-color:transparent}
+.top-star img{display:block;width:26px;height:26px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.top-star:hover img{transform:rotate(36deg) scale(1.08)}
+.top-star:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.top .mbtn{grid-column:3;justify-self:end}
+.top .now{position:absolute;left:calc(50% + 30px);max-width:calc(50% - 150px);text-align:left}
+.now b{font-weight:600;color:var(--fg);margin-right:8px;font-variant-numeric:tabular-nums}
+.mbtn{justify-self:end;display:flex;align-items:center;gap:10px;height:38px;padding:0 14px 0 12px;border:1px solid #d8d8d8;border-radius:999px;background:#fff;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.mbtn:hover{background:#f4f4f4;border-color:#bdbdbd}
+.bars{position:relative;width:16px;height:10px}
+.bars i{position:absolute;left:0;width:100%;height:1.5px;background:currentColor;transition:transform .3s,top .3s,opacity .2s}
+.bars i:nth-child(1){top:0}.bars i:nth-child(2){top:4.25px}.bars i:nth-child(3){top:8.5px}
+.mbtn[aria-expanded="true"] .bars i:nth-child(1){top:4.25px;transform:rotate(45deg)}
+.mbtn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+.mbtn[aria-expanded="true"] .bars i:nth-child(3){top:4.25px;transform:rotate(-45deg)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--fg)}
+
+/* ---------- 목차 오버레이 ---------- */
+.menu{position:fixed;inset:0;z-index:35;background:#0b0b0c;color:#fff;overflow-y:auto;padding:calc(var(--bar) + 28px) clamp(22px,8vw,120px) calc(40px + env(safe-area-inset-bottom));opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.menu.open{opacity:1;visibility:visible}
+.menu-in{max-width:1000px;margin:0 auto}
+.menu a{display:flex;gap:18px;align-items:baseline;padding:13px 0;font-size:clamp(17px,2.2vw,26px);font-weight:300;border-bottom:1px solid #232323;color:#bdbdbd;transition:padding-left .25s,color .25s}
+.menu a:hover{padding-left:10px;color:#fff}
+.menu a.on{color:#fff;font-weight:500}
+.menu a.on::after{content:"";margin-left:auto;align-self:center;width:8px;height:8px;border-radius:50%;background:#fff}
+.menu i{font-style:normal;font-size:12px;color:#777;min-width:26px;letter-spacing:.08em}
+
+/* ---------- 오른쪽 플로팅 목차 (데스크톱) ---------- */
+.rail{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:30;display:none;flex-direction:column;padding:8px 5px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.rail a{position:relative;display:flex;align-items:center;justify-content:center;width:36px;height:27px;font-size:11px;letter-spacing:.03em;color:#a3a3a3;font-variant-numeric:tabular-nums;transition:color .2s}
+.rail a b{font-weight:500}
+.rail a.on{color:#111}.rail a.on b{font-weight:800}
+.rail a.on::before{content:"";position:absolute;left:-1px;top:50%;width:3px;height:3px;margin-top:-1.5px;border-radius:50%;background:#111}
+.rail a>span{position:absolute;right:calc(100% + 12px);white-space:nowrap;background:#111;color:#fff;font-size:12px;padding:6px 12px;border-radius:999px;opacity:0;pointer-events:none;transform:translateX(6px);transition:opacity .2s,transform .2s}
+.rail a:hover>span{opacity:1;transform:none}
+
+@media (min-width:1100px){.rail{display:flex}.orig{padding-right:76px}}
+
+/* ---------- 전체폭 이미지 (표지·소개·이력·마무리) ---------- */
+.full{background:#05080c}
+.full .zoom{position:relative;display:block;width:100%;cursor:zoom-in}
+.full img{display:block;width:100%;height:auto}
+#resume,#resume .zoom{background:#fff}
+
+/* ---------- 프로젝트 ---------- */
+.project{padding:clamp(64px,8vw,128px) 0 0;border-top:1px solid var(--line)}
+.p-head{display:grid;grid-template-columns:90px 1.1fr 1fr;gap:clamp(20px,4vw,64px);padding:0 clamp(16px,4vw,56px) clamp(36px,5vw,72px);max-width:1760px;margin:0 auto}
+@media (min-width:721px){.p-head{padding-left:var(--gut);padding-right:var(--gut)}}
+@media (min-width:1100px){.p-head{padding-right:calc(var(--gut) + 76px)}}
+.p-num{font-size:15px;letter-spacing:.14em;color:var(--mut);padding-top:10px;font-variant-numeric:tabular-nums}
+.p-cat{font-size:14px;letter-spacing:0;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.p-title h2{font-weight:600;font-size:clamp(28px,4.4vw,64px);line-height:1.08;letter-spacing:-.04em;word-break:keep-all;overflow-wrap:break-word}
+.p-ko{margin-top:18px;font-size:clamp(16px,1.15vw,22px);font-weight:300;word-break:keep-all}
+.p-link{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:13px 20px;background:var(--fg);color:#fff;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:-.01em;position:relative;overflow:hidden;isolation:isolate;transition:transform .2s}
+.p-link:hover{transform:translateY(-2px)}
+.p-link .pl-a{font-size:16px;line-height:1}
+.p-link.off{background:#f1f1ef;color:#a5a5a5;pointer-events:none;cursor:default}
+.p-link.off .pl-a{display:none}
+.p-link.off .pl-t::after{content:" · 링크 준비 중";font-size:12px}
+.p-meta{grid-column:3;display:grid;gap:14px;font-size:14px;align-content:start}
+.p-meta>div{display:grid;grid-template-columns:108px 1fr;gap:28px}
+.p-meta dt{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);padding-top:2px}
+.p-meta dd{word-break:keep-all}
+.p-over{grid-column:2 / 4;font-size:16px;color:#444;max-width:760px;line-height:1.9;font-weight:300;word-break:keep-all}
+.slides{border-top:1px solid var(--line);display:flex;flex-direction:column;gap:0;padding:0 0 clamp(40px,6vw,90px);max-width:none;margin:0}
+.p-sub{padding-left:clamp(16px,4vw,56px);padding-right:clamp(16px,4vw,56px)}
+.slide{background:var(--soft);overflow:hidden}
+.zoom{position:relative;display:block;width:100%;cursor:zoom-in}
+.slide img{display:block;width:100%;height:auto;background:var(--soft)}
+.mag{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(17,17,17,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .2s;pointer-events:none}
+.mag::before{content:"";position:absolute;left:9px;top:9px;width:10px;height:10px;border:1.6px solid #fff;border-radius:50%}
+.mag::after{content:"";position:absolute;left:21px;top:22px;width:6px;height:1.6px;background:#fff;transform:rotate(45deg);transform-origin:left center}
+.zoom:hover .mag{opacity:1}
+@media (hover:none){.mag{opacity:.9}}
+.p-sub{margin:clamp(28px,5vw,64px) 0 2px;font-size:clamp(17px,2vw,26px);font-weight:600;letter-spacing:-.03em;display:flex;gap:6px 16px;align-items:baseline;flex-wrap:wrap;word-break:keep-all}
+.p-sub small{font-size:13px;font-weight:300;color:var(--mut);letter-spacing:0}
+
+/* ---------- 원본 이미지 ---------- */
+.orig{max-width:1760px;margin:0 auto;padding:0 var(--gut) clamp(40px,6vw,90px)}
+.orig>summary{list-style:none;cursor:pointer;display:flex;align-items:center;padding:20px 4px;border-top:1px solid var(--fg);border-bottom:1px solid var(--line);transition:background .2s}
+.orig>summary::-webkit-details-marker{display:none}
+.orig>summary:hover{background:#fafafa}
+.orig .o-t{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.orig em{font-style:normal;color:var(--mut);font-size:13px;margin-left:16px}
+.orig>summary i{position:relative;margin-left:auto;width:14px;height:14px}
+.orig>summary i::before,.orig>summary i::after{content:"";position:absolute;left:0;top:6.25px;width:14px;height:1.5px;background:var(--fg);transition:transform .25s}
+.orig>summary i::after{transform:rotate(90deg)}
+.orig[open]>summary i::after{transform:rotate(0)}
+.orig-body{padding-top:28px}
+.o-hero .zoom{background:var(--soft)}
+.o-hero img{display:block;width:100%;height:auto}
+.og{margin-top:clamp(26px,4vw,48px)}
+.og h4{font-size:clamp(15px,1.4vw,18px);font-weight:600;margin-bottom:12px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1vw,16px)}
+.grid .zoom{aspect-ratio:465/623;overflow:hidden;background:var(--soft)}
+.grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.grid .zoom:hover img{transform:scale(1.03)}
+.grid figcaption{margin-top:8px;font-size:12.5px;color:#555;line-height:1.45;word-break:keep-all}
+.grid figcaption b{display:block;font-size:11px;letter-spacing:.1em;color:var(--mut);font-weight:500}
+
+/* ---------- 이전/다음 ---------- */
+.p-next{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.p-next a{display:block;padding:clamp(22px,3.4vw,44px) clamp(16px,4vw,56px);font-size:clamp(15px,1.6vw,20px);font-weight:500;letter-spacing:-.02em;transition:background .2s;word-break:keep-all}
+.p-next a:hover{background:#f7f7f5}
+.p-next small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:500;margin-bottom:6px}
+.pn-next{text-align:right;border-left:1px solid var(--line)}
+
+/* ---------- 라이트박스(확대 보기) ---------- */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.99);display:none;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.lb.open{display:block}
+.lb-stage{min-height:100%;display:flex;align-items:center;justify-content:center;padding:56px 0 64px}
+.lb img{display:block;max-width:96vw;max-height:calc(100vh - 128px);max-height:calc(100dvh - 128px);width:auto;height:auto;object-fit:contain;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+.lb.z .lb-stage{justify-content:flex-start;align-items:flex-start}
+.lb.z img{max-width:none;max-height:none;width:230vw;cursor:grab}
+.lb.panning img{cursor:grabbing}
+.lb.panning{scroll-behavior:auto}
+.lb.z.tall img{width:100vw}
+.lb-bar{position:fixed;left:0;right:0;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 14px 10px 20px;background:linear-gradient(#0a0a0acc,#0a0a0a00);pointer-events:none;color:#fff}
+.lb-bar>*{pointer-events:auto}
+.lb-cap{font-size:12px;letter-spacing:.1em;opacity:.8;max-width:calc(100% - 140px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-btn{height:40px;padding:0 16px;border:1px solid #ffffff40;border-radius:999px;color:#fff;font-size:12px;letter-spacing:.1em;background:#ffffff12;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.lb-btn:hover{background:#ffffff26}
+.lb-nav{position:fixed;z-index:2;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;color:#fff;font-size:26px;background:#ffffff14;border:1px solid #ffffff30;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.lb-nav:hover{background:#ffffff2a}
+.lb-p{left:14px}.lb-n{right:14px}
+.lb-foot{position:fixed;left:0;right:0;bottom:0;z-index:2;display:none;justify-content:center;gap:12px;padding:10px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(#0a0a0a00,#0a0a0acc)}
+
+/* ---------- 표지 인터랙션 (이미지는 그대로, 위에 빛만 얹음) ---------- */
+.fx{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.fx b,.fx i{position:absolute;border-radius:50%;mix-blend-mode:screen;will-change:transform,opacity}
+.fx b{aspect-ratio:1}
+#cover .b1{left:56%;top:4%;width:42%;background:radial-gradient(circle,rgba(160,80,255,.5),transparent 66%);animation:fxA 9s ease-in-out infinite alternate}
+#cover .b2{left:2%;top:50%;width:40%;background:radial-gradient(circle,rgba(255,90,170,.42),rgba(255,190,60,.16) 46%,transparent 68%);animation:fxB 11s ease-in-out infinite alternate}
+#cover .b3{left:-4%;top:-6%;width:46%;background:radial-gradient(circle,rgba(40,200,210,.32),transparent 66%);animation:fxC 13s ease-in-out infinite alternate}
+.fx i{left:0;top:0;width:34%;aspect-ratio:1;background:radial-gradient(circle,rgba(255,175,235,.42),rgba(130,150,255,.2) 38%,transparent 66%);opacity:0;transition:opacity .6s;transform:translate(-9999px,-9999px)}
+.fx.on i{opacity:var(--o,1)}
+@keyframes fxA{0%{transform:translate3d(-4%,2%,0) scale(.92);opacity:.35}100%{transform:translate3d(5%,-3%,0) scale(1.1);opacity:.9}}
+@keyframes fxB{0%{transform:translate3d(0,0,0) scale(.9);opacity:.3}100%{transform:translate3d(9%,-6%,0) scale(1.12);opacity:.85}}
+@keyframes fxC{0%{transform:translate3d(0,0,0) scale(1);opacity:.25}100%{transform:translate3d(8%,10%,0) scale(1.15);opacity:.75}}
+@media (prefers-reduced-motion:reduce){.fx b{animation:none;opacity:.4}.fx i{display:none}}
+
+/* 1·2페이지 사이 구분선 (흰색) */
+#intro{position:relative}
+#intro::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:#fff;z-index:3;pointer-events:none}
+
+/* ---------- 커스텀 마우스 커서 (마우스 있는 기기에서만) ---------- */
+.cc-dot,.cc-ring{position:fixed;left:0;top:0;pointer-events:none;z-index:2147483000;border-radius:50%;opacity:0;mix-blend-mode:difference;transition:opacity .3s}
+.cc-dot{width:8px;height:8px;margin:-4px 0 0 -4px;background:#fff}
+.cc-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid #fff;transition:opacity .3s,width .25s,height .25s,margin .25s,background-color .25s}
+.cc-ring.big{width:58px;height:58px;margin:-29px 0 0 -29px}
+.cc-ring.grab{width:48px;height:48px;margin:-24px 0 0 -24px;background:rgba(255,255,255,.2)}
+.cc-ring.down{width:26px;height:26px;margin:-13px 0 0 -13px}
+html.cc-on .cc-dot,html.cc-on .cc-ring{opacity:1}
+html.cc,html.cc *{cursor:none!important}
+
+/* ---------- 타이틀 레이아웃 (데스크톱): 제목 | 버튼 / 설명 / 메타 4열 ---------- */
+@media (min-width:961px){
+  .p-head{grid-template-columns:90px minmax(0,1fr) auto;row-gap:0;align-items:start}
+  .p-title{display:contents}
+  .p-num{grid-column:1;grid-row:1;padding-top:0}
+  .p-cat{grid-column:2;grid-row:1;text-transform:none;letter-spacing:0}
+  .p-title h2{grid-column:2;grid-row:2;font-size:clamp(32px,3vw,64px)}
+  .p-ko{grid-column:2;grid-row:3}
+  .p-link{grid-column:3;grid-row:2;align-self:center;justify-self:end;margin-top:0}
+  .p-over{grid-column:2 / 4;grid-row:4;margin-top:clamp(20px,2vw,28px);font-size:16px;max-width:880px}
+  .p-meta{grid-column:2 / 4;grid-row:5;margin-top:clamp(36px,4vw,64px);grid-template-columns:repeat(2,minmax(0,1fr));gap:28px clamp(20px,3vw,48px)}
+  .p-meta>div{display:block}
+  .p-meta dt{font-size:14px;padding-top:0;margin-bottom:16px;text-transform:none;letter-spacing:.02em}
+  .p-meta ul{display:grid;gap:4px}
+}
+@media (min-width:1360px){
+  .p-meta{grid-template-columns:repeat(3,minmax(0,1fr)) minmax(260px,.85fr)}
+}
+
+/* ---------- 모바일 ---------- */
+@media (max-width:960px){
+  .p-head{grid-template-columns:1fr;gap:18px}
+  .p-num{padding:0}
+  .p-meta,.p-over{grid-column:1}
+  .p-over{font-size:14px;line-height:1.8}
+  .p-cat,.p-meta dt{text-transform:none}
+  .p-meta>div{grid-template-columns:108px 1fr;gap:20px}.p-meta dt{letter-spacing:.03em;font-size:11px}
+}
+@media (max-width:720px){
+  :root{--bar:52px;--gut:0px}
+  .top{grid-template-columns:1fr auto}
+  .now{display:none}
+  .top .mbtn{grid-column:2}
+  .brand{font-size:12px}
+  .mbtn{height:36px;padding:0 12px 0 11px}
+  .slides{padding-bottom:36px}
+  .slide{border-radius:0}
+  .project{padding-top:56px}
+  .p-title h2{font-size:clamp(26px,8.4vw,36px)}
+  .p-link{display:flex;justify-content:space-between;width:100%;padding:15px 20px;font-size:15px}
+  .orig{padding:0 0 36px}
+  .orig>summary{padding:20px 16px}
+  .orig-body{padding-left:0;padding-right:0}
+  .o-hero{margin:0}
+  .og{padding:0 6px}
+  .og h4{padding:0 10px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .grid figcaption{padding:0 4px}
+  .p-next a{padding:22px 16px}
+  .lb-nav{display:none}
+  .lb-foot{display:flex}
+  .lb-stage{padding:56px 0 78px}
+  .lb img{max-width:100vw;max-height:calc(100dvh - 134px)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+noscript p{padding:24px;text-align:center;font-size:14px}
+</style>
+<script src="config.js"></script>
+</head>
+<body>
+
+<header class="top" id="topbar">
+  <a class="brand" href="#top">Yeonjoo Kim</a>
+  <button class="top-star" id="topStar" type="button" aria-label="맨 위로 이동"><img src="favicon-192.png" alt="" width="26" height="26" decoding="async"></button>
+  <div class="now" id="now" aria-live="polite"></div>
+  <button class="mbtn" id="mbtn" aria-expanded="false" aria-controls="menu" aria-label="목차 열기"><span class="bars"><i></i><i></i><i></i></span><span id="mlbl">Index</span></button>
+  <span class="prog" id="prog"></span>
+</header>
+
+<nav class="menu" id="menu" aria-label="목차"><div class="menu-in">
+<a href="#cover" data-s="cover"><i>—</i><span>Main</span></a>
+<a href="#resume" data-s="resume"><i>PF</i><span>Resume</span></a>
+<a href="#p1" data-s="p1"><i>01</i><span data-x="Uk9paSDshJzruYTsiqQg7ZmN67O0IOuenOuUqe2OmOydtOyngA=="></span></a>
+<a href="#p2" data-s="p2"><i>02</i><span data-x="QTJaIOu4jOuenOuTnOyEvO2EsCDrpqzribTslrw="></span></a>
+<a href="#p3" data-s="p3"><i>03</i><span data-x="UFJBREEg7Ju57IKs7J207Yq4IOumrOuJtOyWvA=="></span></a>
+<a href="#p4" data-s="p4"><i>04</i><span data-x="MjAyNiBBTUUg7J2067Kk7Yq4IOuwjyDqtb/spog="></span></a>
+<a href="#p5" data-s="p5"><i>05</i><span data-x="642UIOudvOydtO2KuCDsoJzroZwg7IOB7IS47Y6Y7J207KeA"></span></a>
+<a href="#p6" data-s="p6"><i>06</i><span data-x="7KeA7J6Q7LK0IOuqqOu5jOumrO2LsCDruIzrnpzrlKk="></span></a>
+<a href="#p7" data-s="p7"><i>07</i><span data-x="7Iux6rCA7Y+s66W0IFNBVFMg7J6Q7Jyo7KO87ZaJIOyFlO2LgCDsoJzslYjshJwg7ZGc7KeA"></span></a>
+<a href="#p8" data-s="p8"><i>08</i><span data-x="65GQ67CU7J20IOqyveywsOyyrSBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+<a href="#p9" data-s="p9"><i>09</i><span data-x="7Iux6rCA7Y+s66W0IFJXUyBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+</div></nav>
+
+<nav class="rail" id="rail" aria-label="프로젝트 바로가기">
+<a href="#cover" data-s="cover" aria-label="맨 위"><b>↑</b><span>Main</span></a>
+<a href="#resume" data-s="resume" aria-label="이력"><b>PF</b><span>Resume</span></a>
+<a href="#p1" data-s="p1"><b>01</b><span data-x="Uk9paSDshJzruYTsiqQg7ZmN67O0IOuenOuUqe2OmOydtOyngA=="></span></a>
+<a href="#p2" data-s="p2"><b>02</b><span data-x="QTJaIOu4jOuenOuTnOyEvO2EsCDrpqzribTslrw="></span></a>
+<a href="#p3" data-s="p3"><b>03</b><span data-x="UFJBREEg7Ju57IKs7J207Yq4IOumrOuJtOyWvA=="></span></a>
+<a href="#p4" data-s="p4"><b>04</b><span data-x="MjAyNiBBTUUg7J2067Kk7Yq4IOuwjyDqtb/spog="></span></a>
+<a href="#p5" data-s="p5"><b>05</b><span data-x="642UIOudvOydtO2KuCDsoJzroZwg7IOB7IS47Y6Y7J207KeA"></span></a>
+<a href="#p6" data-s="p6"><b>06</b><span data-x="7KeA7J6Q7LK0IOuqqOu5jOumrO2LsCDruIzrnpzrlKk="></span></a>
+<a href="#p7" data-s="p7"><b>07</b><span data-x="7Iux6rCA7Y+s66W0IFNBVFMg7J6Q7Jyo7KO87ZaJIOyFlO2LgCDsoJzslYjshJwg7ZGc7KeA"></span></a>
+<a href="#p8" data-s="p8"><b>08</b><span data-x="65GQ67CU7J20IOqyveywsOyyrSBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+<a href="#p9" data-s="p9"><b>09</b><span data-x="7Iux6rCA7Y+s66W0IFJXUyBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+</nav>
+
+<main id="top">
+<section class="full" id="cover" data-sec data-nosnippet><button class="zoom" data-group="slides" data-src="images/s01.jpg" aria-label="확대해서 보기"><img src="images/s01.jpg" width="2400" height="1350" loading="eager" decoding="async" alt="포트폴리오 표지"><span class="fx" aria-hidden="true"><b class="b1"></b><b class="b2"></b><b class="b3"></b><i></i></span><span class="mag" aria-hidden="true"></span></button></section>
+<section class="full" id="intro" data-sec data-nosnippet><button class="zoom" data-group="slides" data-src="images/s02.jpg" aria-label="확대해서 보기"><img src="images/s02.jpg" width="2400" height="1350" loading="lazy" decoding="async" alt="포트폴리오 소개"><span class="fx" aria-hidden="true"><i></i></span><span class="mag" aria-hidden="true"></span></button></section>
+<section class="full" id="resume" data-sec data-nosnippet><button class="zoom" data-group="slides" data-src="images/s03.jpg" aria-label="확대해서 보기"><img src="images/s03.jpg" width="2400" height="1350" loading="lazy" decoding="async" alt="포트폴리오 이력"><span class="mag" aria-hidden="true"></span></button></section>
+<section class="project" id="p1" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">01</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V2Vi"></span></p>
+<h2><span data-x="Uk9paSBTZXJ2aWNlIFByb21vdGlvbmFsIExhbmRpbmcgUGFnZQ=="></span></h2>
+<p class="p-ko"><span data-x="Uk9paSDshJzruYTsiqQg7ZmN67O0IOuenOuUqe2OmOydtOyngA=="></span></p>
+<a class="p-link off" data-link="p1" href="#" target="_blank" rel="noopener noreferrer nofollow"><span class="pl-t"><span data-x="7Y6Y7J207KeAIOuwlOuhnOqwgOq4sA=="></span></span><span class="pl-a" aria-hidden="true">↗</span></a>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNS4wOCDigJMgMjAyNS4xMA=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="RmlnbWEgwrcgQWRvYmUgSWxsdXN0cmF0b3IgwrcgSW13ZWIgwrcgR2VtaW5p"></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="656c65Sp7Y6Y7J207KeAIOq4sO2ajSDrsI8gVUkvVVgg65SU7J6Q7J24"></span></li><li><span data-x="7ISc67mE7IqkIOy9mO2FkOy4oCDsoJzsnpEg67CPIOyatO2WiSDsp4Dsl63rs4Qg7Jq07JiBIOq0gOumrA=="></span></li><li><span data-x="7JWE7J6E7Ju5IOq4sOuwmCDrsJjsnZHtmJUg7Ju5IOuwjyDsnbjthLDrnpnshZgg6rWs7ZiE"></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="Uk9paSDsnpDsnKjso7ztlokg7IWU7YuA67KE7IqkIOyEnOu5hOyKpCDtmZXrjIDsl5Ag66ee7LawIOu4jOuenOuTnCDsnbjsp4Drj4TsmYAg7KCV67O0IOygkeq3vOyEseydhCDrhpLsnbTquLAg7JyE7ZWcIO2ZjeuztCDrnpzrlKntjpjsnbTsp4Drpbwg6riw7ZqNIOuwjyDrlJTsnpDsnbjtlojsirXri4jri6QuIFJPaWnsnZgg67iM656c65OcIOqwgOy5mOulvCDtmqjqs7zsoIHsnLzroZwg7KCE64us7ZWY66m07ISc64+EIOyEnOu5hOyKpCDsoJXrs7Qg7YOQ7IOJ6rmM7KeAIOyekOyXsOyKpOufveqyjCDsnbTslrTsp4Drj4TroZ0g6rWs7ISx7ZaI7Iq164uI64ukLg=="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s05.jpg" data-cap-x="MSAvIDc=" aria-label="확대해서 보기"><img src="images/s05.jpg" width="1600" height="900" loading="eager" decoding="async" alt="작업 이미지 1/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s06.jpg" data-cap-x="MiAvIDc=" aria-label="확대해서 보기"><img src="images/s06.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s07.jpg" data-cap-x="MyAvIDc=" aria-label="확대해서 보기"><img src="images/s07.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s08.jpg" data-cap-x="NCAvIDc=" aria-label="확대해서 보기"><img src="images/s08.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s09.jpg" data-cap-x="NSAvIDc=" aria-label="확대해서 보기"><img src="images/s09.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 5/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s10.jpg" data-cap-x="NiAvIDc=" aria-label="확대해서 보기"><img src="images/s10.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 6/7"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s11.jpg" data-cap-x="NyAvIDc=" aria-label="확대해서 보기"><img src="images/s11.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 7/7"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#resume"><small>← Prev</small><span>Resume</span></a>
+<a class="pn-next" href="#p2"><small>Next →</small><span data-x="QTJaIOu4jOuenOuTnOyEvO2EsCDrpqzribTslrw="></span></a>
+</nav></section>
+<section class="project" id="p2" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">02</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V2Vi"></span></p>
+<h2><span data-x="QTJaIEJyYW5kIENlbnRlciBSZW5ld2Fs"></span></h2>
+<p class="p-ko"><span data-x="QTJaIOu4jOuenOuTnOyEvO2EsCDrpqzribTslrw="></span></p>
+<a class="p-link off" data-link="p2" href="#" target="_blank" rel="noopener noreferrer nofollow"><span class="pl-t"><span data-x="7Y6Y7J207KeAIOuwlOuhnOqwgOq4sA=="></span></span><span class="pl-a" aria-hidden="true">↗</span></a>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNi4wMiDigJMgMjAyNi4wNQ=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="RmlnbWEgwrcgQWRvYmUgSWxsdXN0cmF0b3IgwrcgSW13ZWIgwrcgR2VtaW5pIMK3IENsYXVkZQ=="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="6riw7ZqNIOuwjyDsm7ntjpjsnbTsp4AgVUkvVVgg65SU7J6Q7J24"></span></li><li><span data-x="67iM656c65OcIOyekOyCsCDssrTqs4TtmZQg67CPIOy9mO2FkOy4oCDqtazshLE="></span></li><li><span data-x="7JWE7J6E7Ju5IOq4sOuwmCDrsJjsnZHtmJUg7Ju5IOuwjyDsnbjthLDrnpnshZgg6rWs7ZiE"></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="6riw7KG0IOuLqOydvCDtjpjsnbTsp4Ag7ZiV7YOc7J2YIOu4jOuenOuTnOyEvO2EsOulvCDsubTthYzqs6Drpqwg7KSR7Ius7Jy866GcIOqwnO2OuO2VmOyXrCDruIzrnpzrk5wg7J6Q7IKw7J2EIOuztOuLpCDsib3qsowg7YOQ7IOJ7ZWgIOyImCDsnojrj4TroZ0g6rCc7ISg7ZaI7Iq164uI64ukLiBGaWdtYeulvCDtmZzsmqntlbQg65SU7J6Q7J24IOyLnOyViOydhCDsoJzsnpHtlZjqs6AsIOydtOulvCDrsJTtg5XsnLzroZwg7JWE7J6E7Ju57JeQ7IScIOuwmOydke2YlSDsm7ntjpjsnbTsp4Drpbwg6rWs7ZiE7ZWY7JesIOuLpOyWke2VnCDrlJTrsJTsnbTsiqTsl5DshJwg7J286rSA65CcIOyCrOyaqeyekCDqsr3tl5jsnYQg7KCc6rO17ZaI7Iq164uI64ukLg=="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s13.jpg" data-cap-x="MSAvIDU=" aria-label="확대해서 보기"><img src="images/s13.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s14.jpg" data-cap-x="MiAvIDU=" aria-label="확대해서 보기"><img src="images/s14.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s15.jpg" data-cap-x="MyAvIDU=" aria-label="확대해서 보기"><img src="images/s15.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s16.jpg" data-cap-x="NCAvIDU=" aria-label="확대해서 보기"><img src="images/s16.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s17.jpg" data-cap-x="NSAvIDU=" aria-label="확대해서 보기"><img src="images/s17.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 5/5"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p1"><small>← Prev</small><span data-x="Uk9paSDshJzruYTsiqQg7ZmN67O0IOuenOuUqe2OmOydtOyngA=="></span></a>
+<a class="pn-next" href="#p3"><small>Next →</small><span data-x="UFJBREEg7Ju57IKs7J207Yq4IOumrOuJtOyWvA=="></span></a>
+</nav></section>
+<section class="project" id="p3" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">03</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V2Vi"></span></p>
+<h2><span data-x="UFJBREEgV2Vic2l0ZSBSZW5ld2Fs"></span></h2>
+<p class="p-ko"><span data-x="UFJBREEg7Ju57IKs7J207Yq4IOumrOuJtOyWvA=="></span></p>
+<a class="p-link off" data-link="p3" href="#" target="_blank" rel="noopener noreferrer nofollow"><span class="pl-t"><span data-x="7Y6Y7J207KeAIOuwlOuhnOqwgOq4sA=="></span></span><span class="pl-a" aria-hidden="true">↗</span></a>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyMS4wNCDigJMgMjAyMS4xMQ=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="QWRvYmUgSWxsdXN0cmF0b3IgwrcgQWRvYmUgUGhvdG9zaG9wIMK3IEFkb2JlIERyZWFtd2VhdmVy"></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="7KCV67O0IOq1rOyhsCDrsI8g7IKs7Jqp7J6QIO2dkOumhCDqsJzshKA="></span></li><li><span data-x="7Ju5IFVJL1VYIOuwjyDruIzrnpzrk5wg7L2Y7YWQ7LigIOuUlOyekOyduA=="></span></li><li><span data-x="7J2867aAIOyEueyFmCDsnbjthLDrnpnshZgg6rWs7ZiEIOuwjyDrqqjrsJTsnbwgVUkg7Iuc7JWIIOygnOyekQ=="></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="UFJBREHqsIAg6rCA7KeEIOygiOygnOuQnCDsnbTrr7jsp4DsmYAg7KCc7ZKIIOykkeyLrOydmCDruIzrnpzrk5wg6rK97ZeY7J2EIOqwle2ZlO2VmOq4sCDsnITtlbQg7Ju57IKs7J207Yq4IOyduO2EsO2OmOydtOyKpOulvCDsnqzqtazshLHtlojsirXri4jri6QuIOu2iO2VhOyalO2VnCDsi5zqsIEg7JqU7IaM64qUIOuNnOyWtOuCtOqzoCwg7YOA7J207Y+s6re4656Y7ZS87JmAIOyXrOuwsSwg7Lm065Oc7ZiVIOq3uOumrOuTnOulvCDspJHsi6zsnLzroZwg7KCV67O0IOq1rOyhsOulvCDsoJXrpqztlojsirXri4jri6QuIOyCrOyaqeyekOydmCDtg5Dsg4kg7Z2Q66aE7J2AIOqwhOqysO2VmOqyjCDrp4zrk6Tqs6AsIOygnO2SiCDsnpDssrTsnZgg66ek66Cl7J20IOuNlCDshKDrqoXtlZjqsowg65Oc65+s64KY64+E66GdIOuUlOyekOyduO2WiOyKteuLiOuLpC4="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s19.jpg" data-cap-x="MSAvIDE1" aria-label="확대해서 보기"><img src="images/s19.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s20.jpg" data-cap-x="MiAvIDE1" aria-label="확대해서 보기"><img src="images/s20.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s21.jpg" data-cap-x="MyAvIDE1" aria-label="확대해서 보기"><img src="images/s21.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s22.jpg" data-cap-x="NCAvIDE1" aria-label="확대해서 보기"><img src="images/s22.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s23.jpg" data-cap-x="NSAvIDE1" aria-label="확대해서 보기"><img src="images/s23.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 5/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s24.jpg" data-cap-x="NiAvIDE1" aria-label="확대해서 보기"><img src="images/s24.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 6/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s25.jpg" data-cap-x="NyAvIDE1" aria-label="확대해서 보기"><img src="images/s25.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 7/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s26.jpg" data-cap-x="OCAvIDE1" aria-label="확대해서 보기"><img src="images/s26.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 8/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s27.jpg" data-cap-x="OSAvIDE1" aria-label="확대해서 보기"><img src="images/s27.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 9/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s28.jpg" data-cap-x="MTAgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s28.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 10/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s29.jpg" data-cap-x="MTEgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s29.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 11/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s30.jpg" data-cap-x="MTIgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s30.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 12/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s31.jpg" data-cap-x="MTMgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s31.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 13/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s32.jpg" data-cap-x="MTQgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s32.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 14/15"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s33.jpg" data-cap-x="MTUgLyAxNQ==" aria-label="확대해서 보기"><img src="images/s33.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 15/15"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p2"><small>← Prev</small><span data-x="QTJaIOu4jOuenOuTnOyEvO2EsCDrpqzribTslrw="></span></a>
+<a class="pn-next" href="#p4"><small>Next →</small><span data-x="MjAyNiBBTUUg7J2067Kk7Yq4IOuwjyDqtb/spog="></span></a>
+</nav></section>
+<section class="project" id="p4" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">04</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V2ViIMK3IEdvb2RzIMK3IFByb21vdGlvbg=="></span></p>
+<h2><span data-x="MjAyNiBBTUUgRXZlbnQgJiBHb29kcw=="></span></h2>
+<p class="p-ko"><span data-x="MjAyNiBBTUUg7J2067Kk7Yq4IOuwjyDqtb/spog="></span></p>
+<a class="p-link off" data-link="p4" href="#" target="_blank" rel="noopener noreferrer nofollow"><span class="pl-t"><span data-x="66qo67CU7J28IOydtOuypO2KuCDtjpjsnbTsp4Ag67CU66Gc6rCA6riw"></span></span><span class="pl-a" aria-hidden="true">↗</span></a>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNi4wOA=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="Q2xhdWRlIMK3IEltd2ViIMK3IEFkb2JlIElsbHVzdHJhdG9yIMK3IEFkb2JlIFBob3Rvc2hvcA=="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="7J2067Kk7Yq4IOq4sO2ajSDrsI8g66qo67CU7J28IO2OmOydtOyngCDsoJzsnpEgKEFJIO2ZnOyaqSk="></span></li><li><span data-x="7J2067Kk7Yq4IOq1v+ymiCDrsI8g7Luk7ZS8IOy/oO2PsCDrlJTsnpDsnbg="></span></li><li><span data-x="6rW/7KaIIOygnOyekSDsl4XssrQg7Luk666k64uI7LyA7J207IWY"></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="MjAyNiBBTUUg7KCE7IucIO2YhOyepeyXkOyEnCDruIzrnpzrk5wg6rK97ZeY7J2EIOqwle2ZlO2VmOqzoCDsnbTrsqTtirgg7LC47Jes66W8IOycoOuPhO2VmOq4sCDsnITtlZwg7J2067Kk7Yq4IO2OmOydtOyngOyZgCDqtb/spojrpbwg65SU7J6Q7J247ZaI7Iq164uI64ukLiBBSSDtiLTsnYQg7Zmc7Jqp7ZWY7JesIOuqqOuwlOydvCDsnbTrsqTtirgg7Y6Y7J207KeA66W8IOygnOyeke2WiOycvOupsCwg7ZiE7J6lIOydtOuypO2KuCDqtb/spojsmYAg7Luk7ZS8IOq1kO2ZmCDsv6Dtj7DquYzsp4Ag67iM656c65OcIOyVhOydtOuNtO2LsO2LsOulvCDsnbzqtIDrkJjqsowg67CY7JiB7ZWY7JesIOyghOyLnCDtmITsnqXsl5DshJzsnZgg67iM656c65OcIOydtOuvuOyngOulvCDtmqjqs7zsoIHsnLzroZwg7KCE64us7ZaI7Iq164uI64ukLg=="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s35.jpg" data-cap-x="MiAvIDU=" aria-label="확대해서 보기"><img src="images/s35.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s36.jpg" data-cap-x="MyAvIDU=" aria-label="확대해서 보기"><img src="images/s36.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s37.jpg" data-cap-x="NCAvIDU=" aria-label="확대해서 보기"><img src="images/s37.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/5"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s38.jpg" data-cap-x="NSAvIDU=" aria-label="확대해서 보기"><img src="images/s38.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/5"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p3"><small>← Prev</small><span data-x="UFJBREEg7Ju57IKs7J207Yq4IOumrOuJtOyWvA=="></span></a>
+<a class="pn-next" href="#p5"><small>Next →</small><span data-x="642UIOudvOydtO2KuCDsoJzroZwg7IOB7IS47Y6Y7J207KeA"></span></a>
+</nav></section>
+<section class="project" id="p5" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">05</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V2Vi"></span></p>
+<h2><span data-x="VGhlIGxpZ2h0IFpFUk8gRGV0YWlsIFBhZ2U="></span></h2>
+<p class="p-ko"><span data-x="642UIOudvOydtO2KuCDsoJzroZwg7IOB7IS47Y6Y7J207KeA"></span></p>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNC4xMSDigJMgMjAyNS4wMQ=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="QWRvYmUgSWxsdXN0cmF0b3IgwrcgQWRvYmUgUGhvdG9zaG9w"></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="ODAl"></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="7IOB7IS47Y6Y7J207KeAIOuUlOyekOyduA=="></span></li><li><span data-x="7L2Y7YWQ7LigIOq1rOyEsSDrsI8g6riw7ZqN"></span></li><li><span data-x="7KCc7ZKIIOusuOq1rCDrsI8g7Lm07ZS865287J207YyF"></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="642UIOudvOydtO2KuCDsoJzroZwgM+yiheydmCDsg4HshLjtjpjsnbTsp4Drpbwg6riw7ZqNIOuwjyDrlJTsnpDsnbjtlojsirXri4jri6QuIOKAmOygnOuhnOKAmeudvOuKlCDsoJztkojsnZgg7J6l7KCQ6rO8IOunm+uzhCDqsJzshLHsnbQg64+L67O07J2064+E66GdIOq1rOyEse2WiOyKteuLiOuLpC4="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s39.jpg" data-cap-x="MSAvIDM=" aria-label="확대해서 보기"><img src="images/s39.jpg" width="1300" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/3"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s40.jpg" data-cap-x="MiAvIDM=" aria-label="확대해서 보기"><img src="images/s40.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/3"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s41.jpg" data-cap-x="MyAvIDM=" aria-label="확대해서 보기"><img src="images/s41.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/3"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p4"><small>← Prev</small><span data-x="MjAyNiBBTUUg7J2067Kk7Yq4IOuwjyDqtb/spog="></span></a>
+<a class="pn-next" href="#p6"><small>Next →</small><span data-x="7KeA7J6Q7LK0IOuqqOu5jOumrO2LsCDruIzrnpzrlKk="></span></a>
+</nav></section>
+<section class="project" id="p6" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">06</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="V3JhcHBpbmc="></span></p>
+<h2><span data-x="UmVnaW9uYWwgTW9iaWxpdHkgQnJhbmRpbmc="></span></h2>
+<p class="p-ko"><span data-x="7KeA7J6Q7LK0IOuqqOu5jOumrO2LsCDruIzrnpzrlKk="></span></p>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNS4wOSDigJMgMjAyNi4xMA=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="QWRvYmUgSWxsdXN0cmF0b3I="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="65SU7J6Q7J24IOuwqe2WpSDquLDtmo0="></span></li><li><span data-x="7LCo65+JIOueqe2VkSDrlJTsnpDsnbg="></span></li><li><span data-x="7ZmN67O066y8IOuUlOyekOyduA=="></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="7J6Q7Jyo7KO87ZaJIOuqqOu5jOumrO2LsCDshJzruYTsiqTqsIAg7KeA7JetIOyViOyXkOyEnCDsnpDsl7DsiqTrn73qsowg7J247Iud65CgIOyImCDsnojrj4TroZ0g7LCo65+JIOueqe2VkeqzvCDtmY3rs7TrrLzsnYQg65SU7J6Q7J247ZaI7Iq164uI64ukLiDsp4Dsl63snZgg7IOB7KeV7ISx7J2EIOyEnOu5hOyKpCDsnbTrr7jsp4DsmYAg7Iuc6rCB7KCB7Jy866GcIOyXsOqysO2VmOyXrCDsnpDsnKjso7ztlokg7LCo65+J7J2EIOybgOyngeydtOuKlCDsp4Dsl60g67iM656c65Sp7Jy866GcIO2ZnOyaqe2VmOqzoOyekCDtlojsirXri4jri6Qu"></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s43.jpg" data-cap-x="MSAvIDEw" aria-label="확대해서 보기"><img src="images/s43.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s44.jpg" data-cap-x="MiAvIDEw" aria-label="확대해서 보기"><img src="images/s44.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s45.jpg" data-cap-x="MyAvIDEw" aria-label="확대해서 보기"><img src="images/s45.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s46.jpg" data-cap-x="NCAvIDEw" aria-label="확대해서 보기"><img src="images/s46.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s47.jpg" data-cap-x="NSAvIDEw" aria-label="확대해서 보기"><img src="images/s47.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 5/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s48.jpg" data-cap-x="NiAvIDEw" aria-label="확대해서 보기"><img src="images/s48.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 6/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s49.jpg" data-cap-x="NyAvIDEw" aria-label="확대해서 보기"><img src="images/s49.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 7/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s50.jpg" data-cap-x="OCAvIDEw" aria-label="확대해서 보기"><img src="images/s50.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 8/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s51.jpg" data-cap-x="OSAvIDEw" aria-label="확대해서 보기"><img src="images/s51.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 9/10"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s52.jpg" data-cap-x="MTAgLyAxMA==" aria-label="확대해서 보기"><img src="images/s52.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 10/10"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p5"><small>← Prev</small><span data-x="642UIOudvOydtO2KuCDsoJzroZwg7IOB7IS47Y6Y7J207KeA"></span></a>
+<a class="pn-next" href="#p7"><small>Next →</small><span data-x="7Iux6rCA7Y+s66W0IFNBVFMg7J6Q7Jyo7KO87ZaJIOyFlO2LgCDsoJzslYjshJwg7ZGc7KeA"></span></a>
+</nav></section>
+<section class="project" id="p7" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">07</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="QUk="></span></p>
+<h2><span data-x="U2luZ2Fwb3JlIFNBVFMgQXV0b25vbW91cyBTaHV0dGxlIFByb3Bvc2FsIENvdmVy"></span></h2>
+<p class="p-ko"><span data-x="7Iux6rCA7Y+s66W0IFNBVFMg7J6Q7Jyo7KO87ZaJIOyFlO2LgCDsoJzslYjshJwg7ZGc7KeA"></span></p>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNi4wNg=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="Q2xhdWRlIMK3IEdQVCDCtyBOYW5vIEJhbmFuYSDCtyBBZG9iZSBQaG90b3Nob3AgwrcgQWRvYmUgSWxsdXN0cmF0b3I="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="QUnrpbwg7Zmc7Jqp7ZWcIOqwgOyDgSDsi5zrgpjrpqzsmKQg7KCc7J6R"></span></li><li><span data-x="6rO16rCEIOuwjyDsg4Htmanrs4Qg67mE7KO87Ja8IOq1rOyEsQ=="></span></li><li><span data-x="7ZuE67CYIOuztOyglSDsnpHsl4U="></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="7Iux6rCA7Y+s66W0IOuyleyduOydmCDssL3snbTqs7Xtla0g7J6Q7Jyo7KO87ZaJIOyFlO2LgOuyhOyKpCDrj4TsnoUg7KCc7JWI7ISc66W8IOychO2VnCDtkZzsp4Ag7J2066+47KeA66W8IOygnOyeke2WiOyKteuLiOuLpC4gQUkg7Yi07J2EIO2ZnOyaqe2VmOyXrCDqsIDsg4HsnZgg7Iuc64KY66as7Jik7JmAIOy7qOyFieydhCDqtazsg4HtlZjsl6wg7ZiE7J6l6rCQ6rO8IOq4sOyIoOyggSDsnbTrr7jsp4Drpbwg6rWs7ZiE7ZaI7Iq164uI64ukLiDsnbTrpbwg7Ya17ZW0IOygnOyViOyEnOydmCDtlbXsi6wg66mU7Iuc7KeA7JmAIOyekOycqOyjvO2WiSDquLDsiKDsl5Ag64yA7ZWcIOyLoOuisOqwkOydhCDtmqjqs7zsoIHsnLzroZwg7KCE64us7ZaI7Iq164uI64ukLg=="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s54.jpg" data-cap-x="MSAvIDE=" aria-label="확대해서 보기"><img src="images/s54.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/1"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<details class="orig" data-nosnippet><summary><span class="o-t">View Original</span><em>원본 이미지 보기</em><i aria-hidden="true"></i></summary><div class="orig-body">
+<div class="og"><h4><span>싱가포르 SATS 자율주행 셔틀 제안서 표지 이미지</span></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p7" data-src="images/ai/p7-g1-01.png" data-cap-x="MDEgwrcg7IOI67K97J2EIOyXrOuKlCBST2lp" aria-label="원본 이미지 확대"><img src="images/ai/p7-g1-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>01</b><span data-x="7IOI67K97J2EIOyXrOuKlCBST2lp"></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p7" data-src="images/ai/p7-g1-02.png" data-cap-x="MDIgwrcg7ZWY66Oo7J2YIO2dkOumhOydhCDtlajqu5gg7ZWY64qUIFJPaWk=" aria-label="원본 이미지 확대"><img src="images/ai/p7-g1-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>02</b><span data-x="7ZWY66Oo7J2YIO2dkOumhOydhCDtlajqu5gg7ZWY64qUIFJPaWk="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p7" data-src="images/ai/p7-g1-03.png" data-cap-x="MDMgwrcg64uk7J2MIOyXrOygleydhCDquLDri6TrpqzripQgUk9paQ==" aria-label="원본 이미지 확대"><img src="images/ai/p7-g1-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>03</b><span data-x="64uk7J2MIOyXrOygleydhCDquLDri6TrpqzripQgUk9paQ=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p7" data-src="images/ai/p7-g1-04.png" data-cap-x="MDQgwrcg7LC97J206rO17ZWt7J2YIO2SjeqyveydhCDri6zrpqzripQgUk9paQ==" aria-label="원본 이미지 확대"><img src="images/ai/p7-g1-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>04</b><span data-x="7LC97J206rO17ZWt7J2YIO2SjeqyveydhCDri6zrpqzripQgUk9paQ=="></span></figcaption>
+</figure>
+</div></div>
+</div></details>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p6"><small>← Prev</small><span data-x="7KeA7J6Q7LK0IOuqqOu5jOumrO2LsCDruIzrnpzrlKk="></span></a>
+<a class="pn-next" href="#p8"><small>Next →</small><span data-x="65GQ67CU7J20IOqyveywsOyyrSBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+</nav></section>
+<section class="project" id="p8" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">08</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="QUk="></span></p>
+<h2><span data-x="RHViYWkgUG9saWNlIFJPaWkgQ29uY2VwdCBJbWFnZQ=="></span></h2>
+<p class="p-ko"><span data-x="65GQ67CU7J20IOqyveywsOyyrSBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></p>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNi4wNw=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="Q2xhdWRlIMK3IEdQVCDCtyBOYW5vIEJhbmFuYSDCtyBBZG9iZSBQaG90b3Nob3A="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="QUnrpbwg7Zmc7Jqp7ZWcIOqwgOyDgSDsi5zrgpjrpqzsmKQg7KCc7J6R"></span></li><li><span data-x="6rO16rCEIOuwjyDsg4Htmanrs4Qg67mE7KO87Ja8IOq1rOyEsQ=="></span></li><li><span data-x="7ZuE67CYIOuztOyglSDsnpHsl4U="></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="65GQ67CU7J20IOqyveywsOyyreqzvOydmCDrr7jtjIXsnYQg7JyE7ZW0IOyekOycqOyjvO2WiSDrqqjruYzrpqzti7Drpbwg7Zmc7Jqp7ZWcIEFJIOy7qOyFiSDsnbTrr7jsp4Drpbwg7KCc7J6R7ZaI7Iq164uI64ukLiBBSSDtiLTsnYQg7Zmc7Jqp7ZWY7JesIOyekOycqOyjvO2WiSDrqqjruYzrpqzti7DsnZgg64K067aA66W8IOuvuOuemCA06rCA7KeA7J2YIOqyveywsCDsl4XrrLQg6rO16rCE7Jy866GcIOq1rOyytO2ZlO2WiOyKteuLiOuLpC4g7J2066W8IO2Gte2VtCDsnpDsnKjso7ztlokg6riw7Iig7J2EIOyLpOygnCDqsr3ssLAg7JeF66y0IO2ZmOqyveyXkOyEnCDtmZzsmqntlaAg7IiYIOyeiOuKlCDrqqjsirXsnYQg7KeB6rSA7KCB7Jy866GcIOyghOuLrO2WiOyKteuLiOuLpC4="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s56.jpg" data-cap-x="MSAvIDQ=" aria-label="확대해서 보기"><img src="images/s56.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/4"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s57.jpg" data-cap-x="MiAvIDQ=" aria-label="확대해서 보기"><img src="images/s57.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/4"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s58.jpg" data-cap-x="MyAvIDQ=" aria-label="확대해서 보기"><img src="images/s58.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 3/4"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s59.jpg" data-cap-x="NCAvIDQ=" aria-label="확대해서 보기"><img src="images/s59.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 4/4"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<details class="orig" data-nosnippet><summary><span class="o-t">View Original</span><em>원본 이미지 보기</em><i aria-hidden="true"></i></summary><div class="orig-body">
+<div class="og"><h4><span data-x="66y07J2466+87JuQ7IukIOy7qOyFiQ=="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g1-01.png" data-cap-x="66y07J2466+87JuQ7IukIOy7qOyFiSDCtyAwMQ==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g1-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g1-02.png" data-cap-x="66y07J2466+87JuQ7IukIOy7qOyFiSDCtyAwMg==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g1-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g1-03.png" data-cap-x="66y07J2466+87JuQ7IukIOy7qOyFiSDCtyAwMw==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g1-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g1-04.png" data-cap-x="66y07J2466+87JuQ7IukIOy7qOyFiSDCtyAwNA==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g1-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+</div></div>
+<div class="og"><h4><span data-x="66y87ZKIIOydtOuPmSDsu6jshYk="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g2-01.png" data-cap-x="66y87ZKIIOydtOuPmSDsu6jshYkgwrcgMDE=" aria-label="원본 이미지 확대"><img src="images/ai/p8-g2-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g2-02.png" data-cap-x="66y87ZKIIOydtOuPmSDsu6jshYkgwrcgMDI=" aria-label="원본 이미지 확대"><img src="images/ai/p8-g2-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g2-03.png" data-cap-x="66y87ZKIIOydtOuPmSDsu6jshYkgwrcgMDM=" aria-label="원본 이미지 확대"><img src="images/ai/p8-g2-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g2-04.png" data-cap-x="66y87ZKIIOydtOuPmSDsu6jshYkgwrcgMDQ=" aria-label="원본 이미지 확대"><img src="images/ai/p8-g2-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+</div></div>
+<div class="og"><h4><span data-x="7Jyg7LmY7J6lIOy7qOyFiQ=="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g3-01.png" data-cap-x="7Jyg7LmY7J6lIOy7qOyFiSDCtyAwMQ==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g3-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g3-02.png" data-cap-x="7Jyg7LmY7J6lIOy7qOyFiSDCtyAwMg==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g3-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g3-03.png" data-cap-x="7Jyg7LmY7J6lIOy7qOyFiSDCtyAwMw==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g3-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g3-04.png" data-cap-x="7Jyg7LmY7J6lIOy7qOyFiSDCtyAwNA==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g3-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+</div></div>
+<div class="og"><h4><span data-x="7Leo7KGw7IukIOy7qOyFiQ=="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g4-01.png" data-cap-x="7Leo7KGw7IukIOy7qOyFiSDCtyAwMQ==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g4-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g4-02.png" data-cap-x="7Leo7KGw7IukIOy7qOyFiSDCtyAwMg==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g4-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g4-03.png" data-cap-x="7Leo7KGw7IukIOy7qOyFiSDCtyAwMw==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g4-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+<figure><button class="zoom" data-group="orig-p8" data-src="images/ai/p8-g4-04.png" data-cap-x="7Leo7KGw7IukIOy7qOyFiSDCtyAwNA==" aria-label="원본 이미지 확대"><img src="images/ai/p8-g4-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+</figure>
+</div></div>
+</div></details>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p7"><small>← Prev</small><span data-x="7Iux6rCA7Y+s66W0IFNBVFMg7J6Q7Jyo7KO87ZaJIOyFlO2LgCDsoJzslYjshJwg7ZGc7KeA"></span></a>
+<a class="pn-next" href="#p9"><small>Next →</small><span data-x="7Iux6rCA7Y+s66W0IFJXUyBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+</nav></section>
+<section class="project" id="p9" data-sec data-nosnippet>
+<header class="p-head">
+<div class="p-num">09</div>
+<div class="p-title">
+<p class="p-cat"><span data-x="QUk="></span></p>
+<h2><span data-x="U2luZ2Fwb3JlIFJXUyBST2lpIENvbmNlcHQgSW1hZ2U="></span></h2>
+<p class="p-ko"><span data-x="7Iux6rCA7Y+s66W0IFJXUyBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></p>
+</div><dl class="p-meta">
+<div><dt>Period</dt><dd><span data-x="MjAyNi4wNw=="></span></dd></div>
+<div><dt>Tool</dt><dd><span data-x="Q2xhdWRlIMK3IE5hbm8gQmFuYW5hIMK3IEFkb2JlIFBob3Rvc2hvcA=="></span></dd></div>
+<div><dt>Contribution</dt><dd><span data-x="MTAwJQ=="></span></dd></div>
+<div><dt>Role</dt><dd><ul><li><span data-x="QUnrpbwg7Zmc7Jqp7ZWcIOqwgOyDgSDsi5zrgpjrpqzsmKQg7KCc7J6R"></span></li><li><span data-x="6rO16rCEIOuwjyDsg4Htmanrs4Qg67mE7KO87Ja8IOq1rOyEsQ=="></span></li><li><span data-x="7ZuE67CYIOuztOyglSDsnpHsl4U="></span></li></ul></dd></div>
+</dl>
+<p class="p-over"><span data-x="7Iux6rCA7Y+s66W0IOyEvO2GoOyCrOyErCBSV1Mg66as7KGw7Yq4IOuCtCDsnpDsnKjso7ztlokg66qo67mM66as7YuwIOuPhOyehSDsoJzslYjsl5Ag7Zmc7Jqp7ZWgIEFJIOy7qOyFiSDsnbTrr7jsp4Drpbwg7KCc7J6R7ZaI7Iq164uI64ukLiBBSSDtiLTsnYQg7Zmc7Jqp7ZWY7JesIOyEvO2GoOyCrOyErCDrsI8gUldTIOumrOyhsO2KuCDsnoXqtazrpbwg67Cw6rK97Jy866GcIO2VnCDsnpDsnKjso7ztlokg66qo67mM66as7Yuw7J2YIOyatO2WiSDrqqjsirXsnYQg7Iuc6rCB7ZmU7ZaI7Iq164uI64ukLiDsnbTrpbwg7Ya17ZW0IOyEvO2GoOyCrOyErCBSV1Mg66as7KGw7Yq4IOuCtCDsnpDsnKjso7ztlokg66qo67mM66as7Yuw7J2YIO2ZnOyaqSDrqqjsirXsnYQg6rWs7LK07KCB7Jy866GcIOuztOyXrOyjvOyXiOyKteuLiOuLpC4="></span></p></header>
+<div class="slides">
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s61.jpg" data-cap-x="MSAvIDI=" aria-label="확대해서 보기"><img src="images/s61.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 1/2"><span class="mag" aria-hidden="true"></span></button></figure>
+<figure class="slide"><button class="zoom" data-group="slides" data-src="images/s62.jpg" data-cap-x="MiAvIDI=" aria-label="확대해서 보기"><img src="images/s62.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="작업 이미지 2/2"><span class="mag" aria-hidden="true"></span></button></figure>
+</div>
+<details class="orig" data-nosnippet><summary><span class="o-t">View Original</span><em>원본 이미지 보기</em><i aria-hidden="true"></i></summary><div class="orig-body">
+<div class="og"><h4><span data-x="7ZSE66as66+47JeEIOuqqOu5jOumrO2LsCDsu6jshYk="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g1-01.png" data-cap-x="MDEgwrcg7IS87Yag7IKsIFZWSVAg7ZSE66as66+47JeEIOyFlO2LgA==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g1-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>01</b><span data-x="7IS87Yag7IKsIFZWSVAg7ZSE66as66+47JeEIOyFlO2LgA=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g1-02.png" data-cap-x="MDIgwrcg7IS87Yag7IKsIFZWSVAg7ZSE66as66+47JeEIOyFlO2LgA==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g1-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>02</b><span data-x="7IS87Yag7IKsIFZWSVAg7ZSE66as66+47JeEIOyFlO2LgA=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g1-03.png" data-cap-x="MDMgwrcg7Jyg64uI67KE7ISkIFZWSVAg65+t7IWU66asIOudvOydtOuTnA==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g1-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>03</b><span data-x="7Jyg64uI67KE7ISkIFZWSVAg65+t7IWU66asIOudvOydtOuTnA=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g1-04.png" data-cap-x="MDQgwrcg66as7KGw7Yq4IFZWSVAg7Juw7Lu0IOuqqOu5jOumrO2LsA==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g1-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>04</b><span data-x="66as7KGw7Yq4IFZWSVAg7Juw7Lu0IOuqqOu5jOumrO2LsA=="></span></figcaption>
+</figure>
+</div></div>
+<div class="og"><h4><span data-x="65287J207ZSE7Iqk7YOA7J28IOuLpOydtOuLnSDsu6jshYk="></span></h4><div class="grid">
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g2-01.png" data-cap-x="MDEgwrcg7ZSE65287J2067mXIOuLpOydtOuLnQ==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g2-01.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 1"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>01</b><span data-x="7ZSE65287J2067mXIOuLpOydtOuLnQ=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g2-02.png" data-cap-x="MDIgwrcg7LqQ7KO87Ja8IOu4jOufsOy5mA==" aria-label="원본 이미지 확대"><img src="images/ai/p9-g2-02.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 2"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>02</b><span data-x="7LqQ7KO87Ja8IOu4jOufsOy5mA=="></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g2-03.png" data-cap-x="MDMgwrcg64+E7IusIOyGjSDsm4Dsp4HsnbTripQg66CI7Iqk7Yag656R" aria-label="원본 이미지 확대"><img src="images/ai/p9-g2-03.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 3"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>03</b><span data-x="64+E7IusIOyGjSDsm4Dsp4HsnbTripQg66CI7Iqk7Yag656R"></span></figcaption>
+</figure>
+<figure><button class="zoom" data-group="orig-p9" data-src="images/ai/p9-g2-04.png" data-cap-x="MDQgwrcg67CU64uk66W8IOuwlOudvOuztOupsCDsppDquLDripQg67iM65+w7LmY" aria-label="원본 이미지 확대"><img src="images/ai/p9-g2-04.png" width="465" height="623" loading="lazy" decoding="async" alt="AI 컨셉 원본 4"><span class="mag" aria-hidden="true"></span></button>
+<figcaption><b>04</b><span data-x="67CU64uk66W8IOuwlOudvOuztOupsCDsppDquLDripQg67iM65+w7LmY"></span></figcaption>
+</figure>
+</div></div>
+</div></details>
+<nav class="p-next" aria-label="프로젝트 이동">
+<a class="pn-prev" href="#p8"><small>← Prev</small><span data-x="65GQ67CU7J20IOqyveywsOyyrSBST2lpIOy7qOyFiSDsnbTrr7jsp4A="></span></a>
+<a class="pn-next" href="#top"><small>Top ↑</small><span>맨 위로</span></a>
+</nav></section>
+<section class="full" id="thanks" data-sec data-nosnippet><button class="zoom" data-group="slides" data-src="images/s63.jpg" aria-label="확대해서 보기"><img src="images/s63.jpg" width="2400" height="1350" loading="lazy" decoding="async" alt="포트폴리오 마무리"><span class="mag" aria-hidden="true"></span></button></section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
+  <div class="lb-bar"><div class="lb-cap" id="lbc"></div><button class="lb-btn" id="lbx">CLOSE ✕</button></div>
+  <div class="lb-stage" id="lbs"><img id="lbi" alt=""></div>
+  <button class="lb-nav lb-p" id="lbp" aria-label="이전">‹</button>
+  <button class="lb-nav lb-n" id="lbn" aria-label="다음">›</button>
+  <div class="lb-foot"><button class="lb-btn" id="lbp2">‹ 이전</button><button class="lb-btn" id="lbz">확대 / 맞춤</button><button class="lb-btn" id="lbn2">다음 ›</button></div>
+</div>
+
+<noscript><p>이 페이지는 JavaScript가 필요합니다.</p></noscript>
+
+<script>
+/* ---- 텍스트 복원: 프로젝트명 등은 정적 HTML에 평문으로 존재하지 않는다 ---- */
+function dx(b){try{var s=atob(b),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return new TextDecoder('utf-8').decode(u)}catch(e){return ''}}
+document.querySelectorAll('[data-x]').forEach(function(el){el.textContent=dx(el.getAttribute('data-x'))});
+
+/* ---- 바로가기 링크 (config.js 에서 주소 관리) ---- */
+(function(){
+  var L=window.PORTFOLIO_LINKS||{};
+  document.querySelectorAll('.p-link').forEach(function(a){
+    var u=(L[a.getAttribute('data-link')]||'').trim();
+    if(u){a.href=u;a.classList.remove('off')}else{a.removeAttribute('href')}
+  });
+})();
+
+/* ---- 메뉴 ---- */
+var menu=document.getElementById('menu'),mbtn=document.getElementById('mbtn'),mlbl=document.getElementById('mlbl');
+function tog(f){var o=typeof f==='boolean'?f:!menu.classList.contains('open');menu.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);mlbl.textContent=o?'Close':'Index';document.body.style.overflow=o?'hidden':''}
+mbtn.addEventListener('click',function(){tog()});
+menu.addEventListener('click',function(e){if(e.target.closest('a'))tog(false)});
+
+/* ---- 현재 위치 표시(스크롤 스파이) + 진행 막대 ---- */
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('[data-sec]')),links=[].slice.call(document.querySelectorAll('[data-s]'));
+  var now=document.getElementById('now'),prog=document.getElementById('prog');
+  function label(id){var a=document.querySelector('.menu a[data-s="'+id+'"]');if(!a)return '';var n=a.querySelector('i'),s=a.querySelector('span');return {n:n?n.textContent:'',t:(s?s.textContent:'')}}
+  function set(id){
+    if(id==='intro')id='cover'; if(id==='thanks')id='';
+    links.forEach(function(a){var on=a.getAttribute('data-s')===id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+    var l=id?label(id):null;
+    now.innerHTML='';
+    if(l&&id!=='cover'){var b=document.createElement('b');b.textContent=l.n;now.appendChild(b);now.appendChild(document.createTextNode(l.t))}
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(e.target.id)})},{rootMargin:'-45% 0px -54% 0px'});
+  secs.forEach(function(s){io.observe(s)});
+  var tick=false;
+  addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){var h=document.documentElement;var r=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(r*100)+'%';tick=false})},{passive:true});
+  set('cover');
+})();
+
+/* ---- 라이트박스: 그룹별 이동 / 탭하면 확대 / 스와이프 ---- */
+(function(){
+  var lb=document.getElementById('lb'),im=document.getElementById('lbi'),cap=document.getElementById('lbc');
+  var list=[],cur=0,tx=0,ty=0,drag=false;
+  function show(i){
+    cur=(i+list.length)%list.length;var b=list[cur];
+    lb.classList.remove('z');lb.scrollTop=0;lb.scrollLeft=0;
+    im.onload=function(){lb.classList.toggle('tall',im.naturalHeight>im.naturalWidth)};
+    im.src=b.getAttribute('data-src');
+    var c=b.getAttribute('data-cap-x');cap.textContent=(cur+1)+' / '+list.length+(c&&c.length&&c.indexOf('/')<0&&!/^\d+ \/ \d+$/.test(dx(c))?'  ·  '+dx(c):'');
+    var nx=list[(cur+1)%list.length];if(nx){var p=new Image();p.src=nx.getAttribute('data-src')}
+  }
+  function open(b){var g=b.getAttribute('data-group');list=[].slice.call(document.querySelectorAll('.zoom[data-group="'+g+'"]'));show(list.indexOf(b));lb.classList.add('open');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open','z');im.removeAttribute('src');document.body.style.overflow=''}
+  function tz(){lb.classList.toggle('z');if(lb.classList.contains('z')){lb.scrollLeft=0}}
+  document.addEventListener('click',function(e){var b=e.target.closest('.zoom');if(b&&b.hasAttribute('data-src')){e.preventDefault();open(b)}});
+  document.getElementById('lbx').onclick=close;
+  document.getElementById('lbp').onclick=document.getElementById('lbp2').onclick=function(){show(cur-1)};
+  document.getElementById('lbn').onclick=document.getElementById('lbn2').onclick=function(){show(cur+1)};
+  document.getElementById('lbz').onclick=tz;
+  im.addEventListener('click',tz);
+  lb.addEventListener('touchstart',function(e){if(e.touches.length!==1)return;tx=e.touches[0].clientX;ty=e.touches[0].clientY;drag=true},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(!drag||lb.classList.contains('z'))return;drag=false;
+    var t=e.changedTouches[0],dX=t.clientX-tx,dY=t.clientY-ty;
+    if(Math.abs(dX)>60&&Math.abs(dX)>Math.abs(dY)*1.4){show(cur+(dX<0?1:-1))}
+  },{passive:true});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){if(lb.classList.contains('open'))close();else tog(false);return}
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.id==='lbs')close()});
+  /* 확대 상태에서 마우스로 끌어서 이동 */
+  var pan=null,moved=false,swallow=false;
+  lb.addEventListener('pointerdown',function(e){
+    if(e.pointerType!=='mouse'||e.button!==0||!lb.classList.contains('z')||e.target.closest('button'))return;
+    pan={x:e.clientX,y:e.clientY,l:lb.scrollLeft,t:lb.scrollTop};moved=false;
+  });
+  document.addEventListener('pointermove',function(e){
+    if(!pan)return;
+    var dx=e.clientX-pan.x,dy=e.clientY-pan.y;
+    if(!moved&&Math.abs(dx)+Math.abs(dy)>4){moved=true;lb.classList.add('panning')}
+    if(moved){lb.scrollLeft=pan.l-dx;lb.scrollTop=pan.t-dy;e.preventDefault()}
+  });
+  function endPan(){
+    if(!pan)return;
+    pan=null;lb.classList.remove('panning');
+    if(moved){swallow=true;setTimeout(function(){swallow=false},0)}
+  }
+  document.addEventListener('pointerup',endPan);
+  document.addEventListener('pointercancel',endPan);
+  lb.addEventListener('click',function(e){if(swallow){swallow=false;e.stopPropagation();e.preventDefault()}},true);
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  function glow(id){
+    var c=document.getElementById(id); if(!c) return;
+    var fx=c.querySelector('.fx'), g=fx&&fx.querySelector('i'); if(!g) return;
+    var K=[.14,.085,.055,.035,.022], SZ=[1,.82,.66,.5,.36], OP=[1,.6,.42,.28,.16];
+    var els=[g], px=[], py=[], i;
+    for(i=1;i<K.length;i++){var n=document.createElement('i'); fx.appendChild(n); els.push(n);}
+    for(i=0;i<els.length;i++){els[i].style.width=(34*SZ[i])+'%'; els[i].style.setProperty('--o',OP[i]); px.push(0); py.push(0);}
+    var tx=0,ty=0,raf=0,first=true;
+    function loop(){
+      var moving=false;
+      for(var j=0;j<els.length;j++){
+        var ax=j?px[j-1]:tx, ay=j?py[j-1]:ty;
+        px[j]+=((j?ax:tx)-px[j])*K[j]; py[j]+=((j?ay:ty)-py[j])*K[j];
+        els[j].style.transform='translate('+px[j]+'px,'+py[j]+'px) translate(-50%,-50%)';
+        if(Math.abs(tx-px[j])>.5||Math.abs(ty-py[j])>.5) moving=true;
+      }
+      raf=(fx.classList.contains('on')||moving)?requestAnimationFrame(loop):0;
+    }
+    c.addEventListener('pointermove',function(e){
+      if(e.pointerType==='touch') return;
+      var r=c.getBoundingClientRect(); tx=e.clientX-r.left; ty=e.clientY-r.top;
+      if(first){for(var k=0;k<px.length;k++){px[k]=tx;py[k]=ty;}first=false;}
+      fx.classList.add('on'); if(!raf) raf=requestAnimationFrame(loop);
+    });
+    c.addEventListener('pointerleave',function(){fx.classList.remove('on');});
+  }
+  glow('cover'); glow('intro');
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('topStar'); if(!b) return;
+  b.addEventListener('click',function(){
+    var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+    window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
+  });
+})();
+</script>
+<script>
+(function(){
+  if(!window.matchMedia||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  var root=document.documentElement, dot=document.createElement('div'), ring=document.createElement('div');
+  dot.className='cc-dot'; ring.className='cc-ring'; dot.setAttribute('aria-hidden','true'); ring.setAttribute('aria-hidden','true');
+  document.body.appendChild(ring); document.body.appendChild(dot);
+  var mx=0,my=0,rx=0,ry=0,raf=0,seen=false;
+  function loop(){
+    rx+=(mx-rx)*.2; ry+=(my-ry)*.2;
+    ring.style.transform='translate('+rx+'px,'+ry+'px)';
+    raf=(Math.abs(mx-rx)>.3||Math.abs(my-ry)>.3)?requestAnimationFrame(loop):0;
+  }
+  document.addEventListener('pointermove',function(e){
+    if(e.pointerType!=='mouse') return;
+    mx=e.clientX; my=e.clientY;
+    if(!seen){seen=true;rx=mx;ry=my;root.classList.add('cc');}
+    root.classList.add('cc-on');
+    dot.style.transform='translate('+mx+'px,'+my+'px)';
+    var t=e.target&&e.target.closest?e.target.closest('a,button,.zoom,summary,[role=button]'):null;
+    ring.classList.toggle('big',!!t);
+    ring.classList.toggle('grab',!!(e.target&&e.target.closest&&e.target.closest('.lb.z')));
+    if(!raf) raf=requestAnimationFrame(loop);
+  },{passive:true});
+  document.addEventListener('pointerdown',function(){ring.classList.add('down');});
+  document.addEventListener('pointerup',function(){ring.classList.remove('down');});
+  document.documentElement.addEventListener('mouseleave',function(){root.classList.remove('cc-on');});
+  document.documentElement.addEventListener('mouseenter',function(){if(seen)root.classList.add('cc-on');});
+})();
+</script>
+</body>
+</html>
