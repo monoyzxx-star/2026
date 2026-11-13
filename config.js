@@ -8,5 +8,5 @@ window.PORTFOLIO_LINKS = {
   p1: "https://autoa2z.co.kr/MeetROii",
   p2: "https://autoa2z.co.kr/brand",
   p3: "https://monoyzxx-star.github.io/v92od0-1/",
-  p4: "https://autoa2z.co.kr/wordquiz"
+  p4: "https://monoyzxx-star.github.io/hf238-0e/"
 };
